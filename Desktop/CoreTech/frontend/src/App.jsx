@@ -1,49 +1,78 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import ClientesList from './components/ClientesList';
+import TicketsList from './components/TicketsList';
+import TecnicosList from './components/TecnicosList';
 
 export default function App() {
-  const [status, setStatus] = useState('Conectando...');
-  const [clientes, setClientes] = useState([]);
+  const [vista, setVista] = useState('clientes');
 
-  useEffect(() => {
-    const projectRef = "zazwmmveergrnriuhann";
-    const apiKey = "sb_publishable_T89K9Qp4Cavh9rCma6LjjQ_9FphvF8e";
-    const url = `https://${projectRef}.supabase.co/rest/v1/Cliente?select=*`;
+  // Mantenemos tu proyecto y tu clave tal cual
+  const projectRef = "zazwmmveergrnriuhann";
+  const apiKey = "sb_publishable_T89K9Qp4Cavh9rCma6LjjQ_9FphvF8e";
+  
+  // Definimos baseUrl para que la usen los componentes
+  const baseUrl = `https://${projectRef}.supabase.co/rest/v1`;
 
-    fetch(url, {
-      method: 'GET',
-      headers: {
-        'apikey': apiKey,
-        'Authorization': `Bearer ${apiKey}`
-      }
-    })
-    .then(response => response.json())
-    .then(data => {
-      console.log("Datos recibidos:", data);
-      setStatus(`Conexión exitosa. Se cargaron ${data.length} registros.`);
-      setClientes(data);
-    })
-    .catch(error => {
-      setStatus(`Error al conectar: ${error.message}`);
-    });
-  }, []); 
+  const headers = {
+    'apikey': apiKey,
+    'Authorization': `Bearer ${apiKey}`
+  };
 
   return (
-    <div style={{ padding: '20px', fontFamily: 'sans-serif' }}>
-      <h3>Estado de la conexión a Supabase:</h3>
-      <p>{status}</p>
+    <div style={{ padding: '20px', fontFamily: 'sans-serif', maxWidth: '700px', margin: '0 auto' }}>
+      <h2>Panel Principal - CoreTech</h2>
 
-      {clientes.length > 0 && (
-        <div>
-          <h4>Lista de Clientes:</h4>
-          <ul>
-            {clientes.map(cliente => (
-              <li key={cliente.id_cliente}>
-                {cliente.nombre} {cliente.apellido} - {cliente.email}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+      {/* Botones de navegación */}
+      <div style={{ display: 'flex', gap: '10px', marginBottom: '20px' }}>
+        <button 
+          onClick={() => setVista('clientes')}
+          style={{
+            padding: '8px 16px',
+            backgroundColor: vista === 'clientes' ? '#007bff' : '#e0e0e0',
+            color: vista === 'clientes' ? '#fff' : '#000',
+            border: 'none',
+            borderRadius: '4px',
+            cursor: 'pointer'
+          }}
+        >
+          Clientes
+        </button>
+
+        <button 
+          onClick={() => setVista('tickets')}
+          style={{
+            padding: '8px 16px',
+            backgroundColor: vista === 'tickets' ? '#007bff' : '#e0e0e0',
+            color: vista === 'tickets' ? '#fff' : '#000',
+            border: 'none',
+            borderRadius: '4px',
+            cursor: 'pointer'
+          }}
+        >
+          Tickets
+        </button>
+
+        <button 
+          onClick={() => setVista('tecnicos')}
+          style={{
+            padding: '8px 16px',
+            backgroundColor: vista === 'tecnicos' ? '#007bff' : '#e0e0e0',
+            color: vista === 'tecnicos' ? '#fff' : '#000',
+            border: 'none',
+            borderRadius: '4px',
+            cursor: 'pointer'
+          }}
+        >
+          Técnicos
+        </button>
+      </div>
+
+      <hr />
+
+      {/* Renderizado condicional */}
+      {vista === 'clientes' && <ClientesList baseUrl={baseUrl} headers={headers} />}
+      {vista === 'tickets' && <TicketsList baseUrl={baseUrl} headers={headers} />}
+      {vista === 'tecnicos' && <TecnicosList baseUrl={baseUrl} headers={headers} />}
     </div>
   );
 }
