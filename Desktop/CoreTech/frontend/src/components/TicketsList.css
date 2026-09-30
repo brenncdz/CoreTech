@@ -1,0 +1,187 @@
+/* =========================================
+   CORETECH - ESTILOS MESA DE TRABAJO Y MODAL
+========================================= */
+
+/* Ventana emergente (Modal) */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(53, 18, 39, 0.6); /* Oscurecido en tono vino */
+  backdrop-filter: blur(3px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #ffffff;
+  border: 2px dashed #f3a8c8;
+  border-radius: 10px;
+  padding: 30px;
+  width: 100%;
+  max-width: 480px;
+  box-sizing: border-box;
+  box-shadow: 0 10px 35px rgba(190, 67, 119, 0.2);
+  font-family: "Courier New", Courier, monospace;
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  color: #351227;
+  font-size: 16px;
+  letter-spacing: 2px;
+  border-bottom: 1px solid #f3bfd4;
+  padding-bottom: 10px;
+}
+
+.modal-content p {
+  color: #42182f;
+  font-size: 11px;
+  margin: 8px 0;
+}
+
+/* Formulario del Modal */
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.modal-form label {
+  color: #a94d75;
+  font-size: 10px;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+.modal-form select,
+.modal-form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  border: 1px solid #efb4cd;
+  border-radius: 5px;
+  background: #fffafd;
+  color: #42182f;
+  font-family: "Courier New", monospace;
+  font-size: 11px;
+  outline: none;
+}
+
+.modal-form select:focus,
+.modal-form textarea:focus {
+  border-color: #d92f75;
+  box-shadow: 0 0 0 3px rgba(217, 47, 117, 0.08);
+}
+
+.modal-form textarea::placeholder {
+  color: #d49ab4;
+}
+
+/* Botones del Modal */
+.modal-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.btn-trabajar {
+  background: #d92f75;
+  color: white;
+  border: none;
+  padding: 7px 12px;
+  border-radius: 5px;
+  font-family: "Courier New", monospace;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-trabajar:hover {
+  background: #b91f5e;
+}
+
+.btn-guardar {
+  flex: 1;
+  background: #d92f75;
+  color: white;
+  border: none;
+  padding: 11px;
+  border-radius: 5px;
+  font-family: "Courier New", monospace;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.btn-guardar:hover {
+  background: #b91f5e;
+}
+
+.btn-cancelar {
+  background: #ffffff;
+  color: #a94d75;
+  border: 1px solid #efb4cd;
+  padding: 11px 16px;
+  border-radius: 5px;
+  font-family: "Courier New", monospace;
+  font-size: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-cancelar:hover {
+  background: #fff3f8;
+  border-color: #d92f75;
+  color: #d92f75;
+}
+
+/* Etiquetas de Estado (Badges) */
+.badge-status {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 9px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  display: inline-block;
+}
+
+.status-pendiente {
+  background: #fff3f8;
+  color: #b6537c;
+  border: 1px solid #f3bfd4;
+}
+
+.status-en_progreso {
+  background: #d92f75;
+  color: #ffffff;
+}
+
+.status-resuelto {
+  background: #effcf7;
+  color: #008c68;
+  border: 1px solid #a9e5d1;
+}
+
+.status-en_espera {
+  background-color: #f39c12;
+  color: #fff;
+}
+
+.status-en_proceso {
+  background-color: #e91e63;
+  color: #fff;
+}
+
+.status-resuelto {
+  background-color: #2ecc71;
+  color: #fff;
+}

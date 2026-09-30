@@ -1,0 +1,27 @@
+.tabs {
+  display: flex;
+  gap: 8px;
+  border-bottom: 2px solid var(--color-borde);
+  padding-bottom: 8px;
+  margin-bottom: 20px;
+}
+
+.tab {
+  padding: 8px 16px;
+  border-radius: 8px 8px 0 0;
+  cursor: pointer;
+  color: var(--color-texto);
+  text-decoration: none;
+}
+
+.tab.activo {
+  background-color: var(--color-acento);
+  color: white;
+  font-weight: bold;
+}
+.logo-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  object-fit: cover;
+}

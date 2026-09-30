@@ -1,0 +1,92 @@
+/* =========================================
+   CORETECH - LAYOUT Y POSICIONAMIENTO REGISTRO
+========================================= */
+
+/* Contenedor principal centrado */
+.login-container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 20px;
+  box-sizing: border-box;
+}
+
+/* Tarjeta principal con ancho estructurado */
+.login-card {
+  width: 100%;
+  max-width: 460px;
+  padding: 36px 30px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Alineación de encabezados */
+.login-title, 
+.login-subtitle {
+  text-align: center;
+  margin: 4px 0;
+}
+
+/* Formulario en columna uniforme */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 18px;
+  width: 100%;
+}
+
+/* Posicionamiento de cada campo de entrada */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+.form-group input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 11px 12px;
+  font-size: 11px;
+}
+
+/* Botón principal */
+.btn-login {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+/* Bloque inferior de navegación */
+.login-register-link {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 10px;
+}
+
+.btn-text-link {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 0 4px;
+}
+
+.login-footer {
+  margin-top: 20px;
+  text-align: center;
+}
